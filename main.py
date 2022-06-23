@@ -9,8 +9,19 @@ def player_choose_character():
         return "X"
     elif choice.upper() == "O":
         return "O"
-
     
-player_choice = player_choose_character()
-print(player_choice)
+def show_board(board):
+    for row in board:
+        for item in row:
+            print(item, end=" ")
+        print()
+        
+board = []
+
+for _ in range(3):
+    row = []
+    for _ in range(3):
+        row.append("-")
+    board.append(row)
+
     
