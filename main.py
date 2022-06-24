@@ -16,10 +16,26 @@ def show_board(board):
             print(item, end=" ")
         print()
         
-def player_play(board, character):
-    location_row = int(input("What row would you like to play?: "))
-    location_col = int(input("What colum would you like to play?: "))
+def player_play(board, character, location_row, location_col):
     board[location_row][location_col] = character
+    
+def position_row():
+    location_row = int(input("What row would you like to play?: "))
+    
+    if location_row < 0 or location_row > 2:
+        print("Please Enter a number between 0 and 2")
+        position_row()
+    else:
+        return location_row
+    
+def position_col():
+    location_col = int(input("What column would you like to play?: "))
+    
+    if location_col < 0 or location_col > 2:
+        print("Please Enter a number between 0 and 2")
+        position_col()
+    else:
+        return location_col
     
     
         
@@ -38,7 +54,10 @@ player_character = player_choose_character()
 
 show_board(board)
 
-player_play(board, player_character)
+location_row = position_row()
+location_col = position_col()
+
+player_play(board, player_character, location_row, location_col)
 
 show_board(board)
 
