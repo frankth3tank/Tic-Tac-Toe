@@ -73,18 +73,31 @@ while is_game_over == False:
     print("-------------------------------------------------")
     show_board(board)
     print("-------------------------------------------------")
+    
+    players_turn =  True
     player_choice_position = player_choice()
 
-
-    play(board, player_character, player_choice_position)
+    while players_turn:
+        if board[player_choice_position - 1] == "X" or board[player_choice_position - 1] == "O":
+            print("Postion already occupied")
+            player_choice_position = player_choice()
+        else:
+            play(board, player_character, player_choice_position)
+            players_turn = False
 
     show_board(board)
     print("-------------------------------------------------")
+    
+    cpu_turn = True
     cpu_character = comp_character(player_character)
-
     cpu_choice_position = comp_choice()
-
-    play(board, cpu_character, cpu_choice_position)
+    
+    while cpu_turn:
+        if board[cpu_choice_position - 1] == "X" or board[cpu_choice_position - 1] == "O":
+            cpu_choice_position = comp_choice()
+        else:
+            play(board, cpu_character, cpu_choice_position)
+            cpu_turn = False
 
     show_board(board)
     print("-------------------------------------------------")
