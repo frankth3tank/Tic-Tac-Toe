@@ -54,7 +54,33 @@ def is_board_full(board):
         return True
     else: 
         return False
-            
+    
+def ending_condition(board, character, player):
+    if board[0] == character and board[1] == character and board[2] == character:
+        print(f"{player} Won!!")
+        return True
+    elif board[3] == character and board[4] == character and board[5] == character:
+        print(f"{player} Won!")
+        return True
+    elif board[6] == character and board[7] == character and board[8] == character:
+        print(f"{player} Won!")
+        return True
+    elif board[0] == character and board[3] == character and board[6] == character:
+        print(f"{player} Won!")
+        return True
+    elif board[1] == character and board[4] == character and board[7] == character:
+        print(f"{player} Won!")
+        return True
+    elif board[2] == character and board[5] == character and board[8] == character:
+        print(f"{player} Won!")
+        return True
+    elif board[0] == character and board[4] == character and board[8] == character:
+        print(f"{player} Won!")
+        return True
+    elif board[2] == character and board[4] == character and board[6] == character:
+        print(f"{player} Won!")
+        return True
+        
     
     
 board = []
@@ -68,9 +94,9 @@ player_name = input("What is your name?: ")
 welcome_player(player_name)
 print("-------------------------------------------------")
 player_character = player_choose_character()
+print("-------------------------------------------------")
 
 while is_game_over == False:
-    print("-------------------------------------------------")
     show_board(board)
     print("-------------------------------------------------")
     
@@ -84,6 +110,10 @@ while is_game_over == False:
         else:
             play(board, player_character, player_choice_position)
             players_turn = False
+            if ending_condition(board, player_character, player_name):
+                is_game_over = True
+            else:
+                pass
 
     show_board(board)
     print("-------------------------------------------------")
@@ -98,13 +128,11 @@ while is_game_over == False:
         else:
             play(board, cpu_character, cpu_choice_position)
             cpu_turn = False
-
-    show_board(board)
-    print("-------------------------------------------------")
+            if ending_condition(board, cpu_character, "CPU"):
+                is_game_over = True
+            else:
+                pass
     
     if is_board_full(board):
+        print("Is a Draw!")
         is_game_over = True
-
-
-
-    
