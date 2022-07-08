@@ -11,7 +11,7 @@ def player_choose_character():
         return "O"
     else:
         print("Invalid Character, choose between 'X' or 'O'")
-        player_choose_character()
+        return player_choose_character()
     
 def show_board(board):
     steps = 2
@@ -29,7 +29,7 @@ def player_choice():
     choice = int(input("What position would you like to play?: "))
     if choice < 0 or choice > 9:
         print("Please Enter a number between 1 and 9")
-        player_choice()
+        return player_choice()
     else:
         return choice  
     
