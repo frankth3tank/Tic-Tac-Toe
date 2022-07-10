@@ -1,3 +1,4 @@
+import random
 class Player:
     
     def __init__(self, name):
@@ -22,5 +23,16 @@ class Player:
         else:
             return choice 
     
+    def cpu_character(self, player_character):
+        if player_character == "X":
+            return "O"
+        elif player_character == "O":
+            return "X"
         
+    def cpu_choice(self):
+        comp_choice = random.randint(1, 9)
+        return comp_choice
+        
+    
+            
     

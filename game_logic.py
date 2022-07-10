@@ -2,7 +2,7 @@ class GameLogic:
     
     def __init__(self):
         pass
-    
+        
     def ending_condition(self, board, character, player):
         if board[0] == character and board[1] == character and board[2] == character:
             print(f"{player} Won!!")
