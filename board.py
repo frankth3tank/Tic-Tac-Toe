@@ -1,18 +1,22 @@
 class Board:
     
-    def __init__(self):
+    def __init__(self, sizeX=3, sizeY=3):
         self.board = []
-        for index in range(9):
+        self.sizeX = sizeX
+        self.sizeY = sizeY
+        self.size = sizeX * sizeY
+        for index in range(self.size):
             self.board.append(index + 1)
      
     def show_board(self):
-        steps = 2
+        col = 0
         for index in range(len(self.board)):
-            if index > 0 and index % steps == 0:
+            if col > 0 and col % 2 == 0:
                 print(self.board[index], end="\n")
-                steps += 3
+                col = 0
             else:
                 print(self.board[index], end=" ")
+                col += 1
         
-    def play(self, character, choice):
-        self.board[choice - 1] = character
+    # def play(self, character, choice):
+    #     self.board[choice - 1] = character  #board.board[choice - 1]
